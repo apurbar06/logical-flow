@@ -1,6 +1,11 @@
 import { useState } from "react";
 
 function App() {
+  const operators = ["constant", "argument", "and", "or"];
+  const [selectedOperator, setSelectedOperator] = useState("");
+
+  const [selectedConstant, setSelectedConstant] = useState(true);
+
   const [args, setArgs] = useState([
     {
       name: "myArg",
@@ -50,6 +55,47 @@ function App() {
       ))}
       <button onClick={addNewArg}>Add Arg</button>
 
+      <br />
+      <br />
+      <br />
+      <br />
+
+      {selectedOperator === "constant" ? (
+        <select
+          value={selectedConstant}
+          onChange={(e) => {
+            setSelectedConstant(e.target.value === "true" ? true : false);
+          }}
+        >
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      ) : null}
+      
+      {selectedOperator === "" ? (
+        <select
+          value={selectedOperator}
+          onChange={(e) => {
+            setSelectedOperator(e.target.value);
+          }}
+        >
+          <option value="">select</option>
+          {operators.map((operator) => {
+            return (
+              <option key={operator} value={operator}>
+                {operator}
+              </option>
+            );
+          })}
+        </select>
+      ) : null}
+      <button
+        onClick={(e) => {
+          setSelectedOperator("");
+        }}
+      >
+        x
+      </button>
     </div>
   );
 }
