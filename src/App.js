@@ -75,8 +75,12 @@ function App() {
       <br />
 
       <label>result: {result ? "true" : "false"}</label>
-      <pre>state:{JSON.stringify(state, null, 4)}</pre>
-      <pre>args:{JSON.stringify(args, null, 4)}</pre>
+      <br />
+      <br />
+      <br />
+
+      {/* <pre>state:{JSON.stringify(state, null, 4)}</pre>
+      <pre>args:{JSON.stringify(args, null, 4)}</pre> */}
     </div>
   );
 }
